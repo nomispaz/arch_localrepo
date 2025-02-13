@@ -1,0 +1,15 @@
+pkgname=nompac_rs
+
+pkgver=0.1
+pkgrel=1
+pkgdesc="Wrapper around pacman to enable a declarative arch system"
+license=("GPL3")
+arch=('x86_64')
+depends=(
+    )
+source=($pkgname.tar.gz::https://github.com/nomispaz/$pkgname/archive/refs/tags/$pkgver.tar.gz)
+
+package() {
+  cd $pkgname-$pkgver/target/release
+  install -Dm755 nompac_rs "$pkgdir"/usr/bin/$pkgname
+}
